@@ -25,7 +25,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#orderDonutAction" prefHeight="163.0" prefWidth="257.0" text="Order Donut">
+                  <Button contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="163.0" prefWidth="257.0" text="Order Donut">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
