@@ -70,5 +70,10 @@ public class MainMenuController {
      * This function creates a new order if one does not already exist
      */
     private void createNewOrder() {
+        if(!this.orderExist){
+            this.order = new Order(this.orderNum);
+            this.orderNum++;
+            this.orderExist = true;
+        }
     }
 }
