@@ -1,6 +1,13 @@
 package RUCafe;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  * Controller class for the main menu view of the application. From the main menu, the user can order donuts, order coffee, view their current order, and view all the store orders
@@ -12,13 +19,27 @@ public class MainMenuController {
     //WILL EVENTUALLY NEED TO CREATED VARIABLE FOR STORE ORDER: NEED TO MAKE CLASS FOR STORE ORDER
     private int orderNum = 0;
     private boolean orderExist = false;
+    private Object Constants;
 
     /**
      * This function opens the window that is dedicated to ordering donuts
      * @param actionEvent the button is pressed
      */
-    public void openOrderDonuts(ActionEvent actionEvent) {
+    public void openOrderDonuts(ActionEvent actionEvent) throws IOException {
+        createNewOrder();
 
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Donut.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Order Donuts");
+        stage.setScene(new Scene(root1));
+
+        stage.setX(350);
+        stage.setY(450);
+
+        //After the window is open, make main menu disabled
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     /**
@@ -43,5 +64,11 @@ public class MainMenuController {
      */
     public void openViewStoreOrder(ActionEvent actionEvent) {
 
+    }
+
+    /**
+     * This function creates a new order if one does not already exist
+     */
+    private void createNewOrder() {
     }
 }
