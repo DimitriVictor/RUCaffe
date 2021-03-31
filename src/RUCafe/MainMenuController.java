@@ -46,8 +46,21 @@ public class MainMenuController {
      * This function opens the window that is dedicated to ordering coffee
      * @param actionEvent the button is pressed
      */
-    public void openOrderCoffee(ActionEvent actionEvent) {
 
+    public void openOrderCoffee(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Coffee.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Order Coffee");
+        stage.setScene(new Scene(root1));
+
+        stage.setX(350);
+        stage.setY(450);
+
+        //After the window is open, make main menu disabled
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     /**
