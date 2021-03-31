@@ -17,7 +17,14 @@ public class Order implements Customizable{
 
     @Override
     public boolean add(Object obj){
-        return false;
+        if(obj instanceof  Donut){
+            Donut d = (Donut) obj;
+            this.order.add(d);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     @Override

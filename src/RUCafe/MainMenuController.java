@@ -46,7 +46,6 @@ public class MainMenuController {
      * This function opens the window that is dedicated to ordering coffee
      * @param actionEvent the button is pressed
      */
-
     public void openOrderCoffee(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Coffee.fxml"));

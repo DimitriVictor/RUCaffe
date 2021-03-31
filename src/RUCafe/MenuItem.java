@@ -1,10 +1,5 @@
 package RUCafe;
 
-public class MenuItem {
-    public MenuItem(){
-
-    }
-    public double itemPrice(){
-        return 0.0;
-    }
+abstract class MenuItem {
+    abstract double itemPrice();
 }
