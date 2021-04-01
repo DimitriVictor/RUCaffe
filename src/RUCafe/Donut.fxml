@@ -48,5 +48,15 @@
          </font>
       </Text>
       <TextField fx:id="quantityTextField" alignment="CENTER" layoutX="144.0" layoutY="225.0" prefHeight="25.0" prefWidth="62.0" text="1" />
+      <Button layoutX="175.0" layoutY="259.0" mnemonicParsing="false" onAction="#increment" prefHeight="19.0" prefWidth="28.0" text="+">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="144.0" layoutY="259.0" mnemonicParsing="false" onAction="#decrement" prefHeight="19.0" prefWidth="28.0" text="-">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
