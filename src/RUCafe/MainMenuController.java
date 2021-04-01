@@ -32,9 +32,10 @@ public class MainMenuController {
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Order Donuts");
+        stage.setResizable(false);
         stage.setScene(new Scene(root1));
 
-        stage.setX(350);
+        stage.setX(500);
         stage.setY(450);
 
         //After the window is open, make main menu disabled
