@@ -35,8 +35,8 @@ public class MainMenuController {
         stage.setResizable(false);
         stage.setScene(new Scene(root1));
 
-        stage.setX(500);
-        stage.setY(450);
+        stage.setX(RUCafe.Constants.DONUT_WINDOW_WIDTH);
+        stage.setY(RUCafe.Constants.DONUT_WINDOW_HEIGHT);
 
         //After the window is open, make main menu disabled
         stage.initModality(Modality.APPLICATION_MODAL);

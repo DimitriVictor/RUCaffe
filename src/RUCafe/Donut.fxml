@@ -22,7 +22,7 @@
             <Image url="@imgs/donut.png" />
          </image>
       </ImageView>
-      <Text layoutX="89.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Donut Flavors:" wrappingWidth="101.896484375">
+      <Text layoutX="57.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Donut Flavors:" wrappingWidth="101.896484375">
          <font>
             <Font size="16.0" />
          </font>
@@ -34,7 +34,7 @@
       </Text>
       <ScrollPane layoutX="11.0" layoutY="193.0" prefHeight="163.0" prefWidth="194.0">
          <content>
-            <ListView fx:id="donutFlavors" prefHeight="164.0" prefWidth="180.0" />
+            <ListView fx:id="donutFlavors" prefHeight="164.0" prefWidth="179.0" />
          </content>
       </ScrollPane>
       <ScrollPane layoutX="299.0" layoutY="190.0" prefHeight="170.0" prefWidth="187.0">

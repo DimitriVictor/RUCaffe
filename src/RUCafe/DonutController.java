@@ -101,7 +101,7 @@ public class DonutController {
         Donut donut = new Donut(donutType, donutFlavor, quantity);
 
         addDonutToCart(donut, quantity);
-        ObservableList<String> itemsInCart = FXCollections.observableArrayList(populateCart());;
+        ObservableList<String> itemsInCart = FXCollections.observableArrayList(populateCart());
         donutOrders.setItems(itemsInCart);
 
         subtotalTextField.setText(getSubtotal());
@@ -109,16 +109,6 @@ public class DonutController {
     }
 
     public void addDonutToCart(Donut donut, int quantity) {
-        for(Donut d : donutCart){
-            if(donut.getDonutType().equals(d.getDonutType()) && donut.getDonutFlavor().equals(d.getDonutFlavor())){
-                d.setQuantity(d.getQuantity() + quantity);
-                return;
-            }
-        }
-        donutCart.add(donut);
-    }
-
-    public void removeDonutFromCart(Donut donut, int quantity) {
         for(Donut d : donutCart){
             if(donut.getDonutType().equals(d.getDonutType()) && donut.getDonutFlavor().equals(d.getDonutFlavor())){
                 d.setQuantity(d.getQuantity() + quantity);
@@ -147,7 +137,22 @@ public class DonutController {
     }
 
     public void removeFromCart(ActionEvent actionEvent) {
+        if(donutCart.isEmpty()){
+            displayWarning("Your Cart Is Empty, There Is Nothing To Remove");
+            return;
+        }
+        if(donutOrders.getSelectionModel().getSelectedItem() == null){
+            displayWarning("You Must Select A Donut To Remove It");
+            return;
+        }
 
+        donutCart.remove(donutOrders.getSelectionModel().getSelectedIndex());
+
+        ObservableList<String> itemsInCart = FXCollections.observableArrayList(populateCart());;
+        donutOrders.setItems(itemsInCart);
+
+        subtotalTextField.setText(getSubtotal());
+        //resetDonutMenu();
     }
 
     public void addOrder(ActionEvent actionEvent) {
