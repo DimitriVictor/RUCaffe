@@ -35,10 +35,10 @@ public class DonutController {
             ObservableList<String> yeastTypes = FXCollections.observableArrayList("Glazed", "Sugar", "Blueberry Filled");
             donutFlavors.setItems(yeastTypes);
         } else if (donutTypeSelect.getValue().toString().equals("Cake Donut")) {
-            ObservableList<String> cakeTypes = FXCollections.observableArrayList("Chocolate");
+            ObservableList<String> cakeTypes = FXCollections.observableArrayList("Chocolate", "Rainbow", "Buttermilk");
             donutFlavors.setItems(cakeTypes);
         } else if (donutTypeSelect.getValue().toString().equals("Donut Holes")) {
-            ObservableList<String> holeTypes = FXCollections.observableArrayList("Strawberry");
+            ObservableList<String> holeTypes = FXCollections.observableArrayList("Strawberry", "Powder", "Jelly Filled");
             donutFlavors.setItems(holeTypes);
         }
     }
@@ -64,5 +64,11 @@ public class DonutController {
         //alert.setHeaderText("Invalid Command Entered");
         alert.setContentText(warningMessage);
         alert.showAndWait();
+    }
+
+    public void addToCart(ActionEvent actionEvent) {
+    }
+
+    public void removeFromCart(ActionEvent actionEvent) {
     }
 }
