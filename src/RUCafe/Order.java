@@ -21,6 +21,10 @@ public class Order implements Customizable{
             Donut d = (Donut) obj;
             this.order.add(d);
             return true;
+        }else if (obj instanceof Coffee){
+            Coffee c = (Coffee) obj;
+            this.order.add(c);
+            return true;
         }
         else{
             return false;

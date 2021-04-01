@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,6 +26,7 @@
       <CheckBox layoutX="35.0" layoutY="328.0" mnemonicParsing="false" text="Whipped Cream" />
       <CheckBox layoutX="35.0" layoutY="365.0" mnemonicParsing="false" text="Caramel" />
       <ComboBox fx:id="sizeComboBox" layoutX="175.0" layoutY="212.0" prefWidth="150.0" promptText="Size" />
-      <ComboBox fx:id="countComboBox" layoutX="175.0" layoutY="249.0" prefWidth="150.0" promptText="How Many?" />
+      <ComboBox fx:id="countComboBox" layoutX="175.0" layoutY="258.0" prefWidth="150.0" promptText="How Many?" />
+      <TextArea fx:id="totalTextArea" layoutX="175.0" layoutY="337.0" prefHeight="0.0" prefWidth="150.0" promptText="\$0.00" />
    </children>
 </AnchorPane>
