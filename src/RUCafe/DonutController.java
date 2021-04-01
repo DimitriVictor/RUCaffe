@@ -3,6 +3,7 @@ package RUCafe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -40,5 +41,28 @@ public class DonutController {
             ObservableList<String> holeTypes = FXCollections.observableArrayList("Strawberry");
             donutFlavors.setItems(holeTypes);
         }
+    }
+
+    public void increment(ActionEvent actionEvent) {
+        int currQuantity = Integer.parseInt(quantityTextField.getText());
+        quantityTextField.setText(String.valueOf(++currQuantity));
+    }
+
+    public void decrement(ActionEvent actionEvent) {
+        int currQuantity = Integer.parseInt(quantityTextField.getText());
+        if(currQuantity == 1){
+            displayWarning("You cannot order a quantity of an item less than 1!");
+        }
+        else{
+            quantityTextField.setText(String.valueOf(--currQuantity));
+        }
+    }
+
+    public void displayWarning(String warningMessage){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("WARNING");
+        //alert.setHeaderText("Invalid Command Entered");
+        alert.setContentText(warningMessage);
+        alert.showAndWait();
     }
 }
