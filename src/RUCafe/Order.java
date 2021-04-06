@@ -40,7 +40,15 @@ public class Order implements Customizable{
         return this.order.size();
     }
 
-    public ArrayList<String> getOrderList(){
+    public double getSubTotal() {
+        double subTotal = 0.0;
+        for(MenuItem currOrder : this.order){
+            subTotal += currOrder.itemPrice();
+        }
+        return subTotal;
+    }
+
+    public ArrayList<String> getOrderList() {
         ArrayList<String> list = new ArrayList<>();
         for(MenuItem currOrder : this.order){
             list.add(currOrder.toString());

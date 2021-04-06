@@ -12,7 +12,7 @@ public class Constants {
     public static final int DONUT_WINDOW_WIDTH = 500;
 
     //CONSTANTS FOR PRICING
-    public static final double SALES_TAX = 6.625;
+    public static final double SALES_TAX = .06625;
 
     //CONSTANTS FOR DONUT OBJECT
     public static final double YEAST_DONUT_PRICE = 1.39;

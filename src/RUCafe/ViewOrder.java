@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ViewOrder {
@@ -35,7 +36,20 @@ public class ViewOrder {
     }
 
     private void updatePrices() {
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setMinimumFractionDigits(2);
 
+        double subTotal = MainMenuController.order.getSubTotal();
+        double tax = Constants.SALES_TAX * subTotal;
+        double total = subTotal + tax;
+
+        String formattedSubTotal = df.format(subTotal);
+        String formattedTax = df.format(tax);
+        String formattedTotal = df.format(total);
+
+        subTotalTextField.setText("$" + formattedSubTotal);
+        salesTaxTextField.setText("$" + formattedTax);
+        totalTextField.setText("$" + formattedTotal);
     }
 
     public void removeSelectedItem(ActionEvent actionEvent) {
