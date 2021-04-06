@@ -94,7 +94,7 @@ public class MainMenuController {
     }
 
     /**
-     * This function creates a new order if one does not already exist
+     * This function creates a new order if one does not already exist each time
      */
     private void createNewOrder() {
         if(!this.orderExist){
