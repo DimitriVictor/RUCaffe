@@ -9,6 +9,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+/**
+ *
+ * @author Padmank Ambadipudi
+ * @author Dimitri Victor
+ */
 public class StoreOrderController {
 
     @FXML
