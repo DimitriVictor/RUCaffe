@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Controller class for the main menu view of the application. From the main menu, the user can order donuts, order coffee, view their current order, and view all the store orders
+ * This is the controller class for the MainMenu.fxml view. From the main menu, the user can order donuts, order coffee, view their current order, and view all the store orders
  * @author Padmank Ambadipudi
  * @author Dimitri Victor
  */

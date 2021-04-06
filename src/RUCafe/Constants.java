@@ -3,6 +3,7 @@ package RUCafe;
 /**
  * This class contains all the constants that are used in the project
  * @author Padmank Ambadipudi
+ * @Dimitri Victor
  */
 public class Constants {
     //CONSTANTS INVOLVING WINDOW SIZES

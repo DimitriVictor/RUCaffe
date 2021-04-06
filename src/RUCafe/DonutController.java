@@ -12,6 +12,12 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Observable;
 
+/**
+ * This class is the controller for the Donut.fxml view, and it controlls the Order Donut Menu GUI. The user can select types and flavors of donuts, add & remove from cart
+ * and add them to the order
+ * @author Padmank Ambadipudi
+ * @Dimitri Victor
+ */
 public class DonutController {
 
     @FXML
@@ -28,7 +34,7 @@ public class DonutController {
     private ArrayList<Donut> donutCart;
 
     /**
-     * Initializes the Donut Menu GUI
+     * Initializes the Order Donut menu
      */
     public void initialize() {
         ObservableList<String> donutTypes = FXCollections.observableArrayList("Yeast Donut", "Cake Donut", "Donut Holes");
@@ -36,9 +42,12 @@ public class DonutController {
 
         donutCart = new ArrayList<>();
         quantityTextField.setText("1");
-        //subtotalTextField;
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void setDonutFlavors(ActionEvent actionEvent) {
         if (donutTypeSelect.getValue() == null) {
             donutFlavors.setItems(null);
@@ -134,7 +143,7 @@ public class DonutController {
         }
         DecimalFormat df = new DecimalFormat("#.##");
         String subTotal = df.format(totalPrice);
-        return subTotal;
+        return "$"+ subTotal;
     }
 
     public void removeFromCart(ActionEvent actionEvent) {
