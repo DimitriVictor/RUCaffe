@@ -46,7 +46,7 @@ public class CoffeeController {
 
     @FXML
     public void initialize() {
-        ObservableList<String> sizes = FXCollections.observableArrayList(Constants.SMALL,Constants.MEDIUM, Constants.LARGE);
+        ObservableList<String> sizes = FXCollections.observableArrayList(Constants.SHORT,Constants.TALL, Constants.GRANDE, Constants.VENTE);
         sizeComboBox.setItems(sizes);
 
         ObservableList<Integer> numbers = FXCollections.observableArrayList(Constants.ONE,Constants.TWO,Constants.THREE);
@@ -130,15 +130,18 @@ public class CoffeeController {
     void sizeSelected(ActionEvent event) {
 
         String selected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
-            if(selected.equals(Constants.SMALL)){
-                sizePrice = Constants.SMALL_PRICE;
-                coffee.setSize(Constants.SMALL);
-            }else if(selected.equals(Constants.MEDIUM)){
-                sizePrice = Constants.MEDIUM_PRICE;
-                coffee.setSize(Constants.MEDIUM);
+            if(selected.equals(Constants.SHORT)){
+                sizePrice = Constants.SHORT_PRICE;
+                coffee.setSize(Constants.SHORT);
+            }else if(selected.equals(Constants.TALL)){
+                sizePrice = Constants.TALL_PRICE;
+                coffee.setSize(Constants.TALL);
+            }else if(selected.equals(Constants.GRANDE)){
+                sizePrice = Constants.GRANDE_PRICE;
+                coffee.setSize(Constants.GRANDE);
             }else{
-                sizePrice = Constants.LARGE_PRICE;
-                coffee.setSize(Constants.LARGE);
+                sizePrice = Constants.VENTE_PRICE;
+                coffee.setSize(Constants.VENTE);
             }
 
         double totalPrice = (sizePrice + addInsPrice)*count;
