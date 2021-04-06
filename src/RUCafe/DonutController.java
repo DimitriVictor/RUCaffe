@@ -45,8 +45,8 @@ public class DonutController {
     }
 
     /**
-     *
-     * @param actionEvent
+     * This function displays the corresponding donut flavors based on what type of donut was selected
+     * @param actionEvent select donut type combo box is clicked and an option is selected
      */
     public void setDonutFlavors(ActionEvent actionEvent) {
         if (donutTypeSelect.getValue() == null) {
@@ -63,11 +63,19 @@ public class DonutController {
         }
     }
 
+    /**
+     * Increments the quantity of donuts
+     * @param actionEvent the plus button(increment) is pressed
+     */
     public void increment(ActionEvent actionEvent) {
         int currQuantity = Integer.parseInt(quantityTextField.getText());
         quantityTextField.setText(String.valueOf(++currQuantity));
     }
 
+    /**
+     * Decrements the quantity of donuts
+     * @param actionEvent the minus button(decrement) is pressed
+     */
     public void decrement(ActionEvent actionEvent) {
         int currQuantity = Integer.parseInt(quantityTextField.getText());
         if(currQuantity == 1){
@@ -78,6 +86,10 @@ public class DonutController {
         }
     }
 
+    /**
+     * Displays a pop up warning if the user has done something invalid that displays a custom message
+     * @param warningMessage to display to user
+     */
     public void displayWarning(String warningMessage){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("WARNING");
@@ -87,14 +99,9 @@ public class DonutController {
     }
 
     /**
-     * Resets all selections in the Donut Menu GUI
+     * This function adds the selected donut to the user's cart
+     * @param actionEvent the ">>"(add to cart) button is pressed
      */
-    public void resetDonutMenu() {
-        this.donutFlavors.setItems(null);
-        this.donutTypeSelect.setValue("");
-        this.quantityTextField.setText("1");
-    }
-
     public void addToCart(ActionEvent actionEvent) {
         if(donutTypeSelect.getSelectionModel().getSelectedItem() == null && donutFlavors.getSelectionModel().getSelectedItem() == null){
             displayWarning("You Must Select A Donut Type & Donut Flavor Before Adding To The Cart");
@@ -115,9 +122,13 @@ public class DonutController {
         donutOrders.setItems(itemsInCart);
 
         subtotalTextField.setText(getSubtotal());
-        //resetDonutMenu();
     }
 
+    /**
+     * This function adds a given donut and its amount to the cart of donuts
+     * @param donut to be added to the cart
+     * @param quantity the number of said donut to be added
+     */
     public void addDonutToCart(Donut donut, int quantity) {
         for(Donut d : donutCart){
             if(donut.getDonutType().equals(d.getDonutType()) && donut.getDonutFlavor().equals(d.getDonutFlavor())){
@@ -128,6 +139,10 @@ public class DonutController {
         donutCart.add(donut);
     }
 
+    /**
+     * This function generates a list of all the items in the current cart
+     * @return array list full of string representations of all the donuts in the cart
+     */
     public ArrayList<String> populateCart() {
         ArrayList<String> list = new ArrayList<>();
         for(Donut d : donutCart){
@@ -136,6 +151,10 @@ public class DonutController {
         return list;
     }
 
+    /**
+     * This function generates the subtotal of all the donuts in the cart
+     * @return String representation of the subtotal of all donuts in cart
+     */
     public String getSubtotal(){
         double totalPrice = 0.0;
         for(Donut d : donutCart){
@@ -146,6 +165,10 @@ public class DonutController {
         return "$"+ subTotal;
     }
 
+    /**
+     * This function removes the selected donut to the user's cart
+     * @param actionEvent the "<<"(remove from cart) button is pressed
+     */
     public void removeFromCart(ActionEvent actionEvent) {
         if(donutCart.isEmpty()){
             displayWarning("Your Cart Is Empty, There Is Nothing To Remove");
@@ -162,9 +185,12 @@ public class DonutController {
         donutOrders.setItems(itemsInCart);
 
         subtotalTextField.setText(getSubtotal());
-        //resetDonutMenu();
     }
 
+    /**
+     * This function adds all the donuts in the cart to the list of orders
+     * @param actionEvent the add order button is selected
+     */
     public void addOrder(ActionEvent actionEvent) {
         if(donutCart.isEmpty()){
             displayWarning("You Must Have Something In Your Cart Before Ordering!");

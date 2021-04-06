@@ -10,6 +10,12 @@ import javafx.stage.Stage;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * This class is the controller for the ViewOrder.fxml view. The user can review
+ * the order, remove a selected item and place the order.
+ * @author Padmank Ambadipudi
+ * @author Dimitri Victor
+ */
 public class ViewOrderController {
 
     @FXML
@@ -26,7 +32,7 @@ public class ViewOrderController {
     private Button placeOrderBtn;
 
     /**
-     * Initializes the Donut Menu GUI
+     * Initializes the View Order menu
      */
     public void initialize() {
         ObservableList<String> orders = FXCollections.observableArrayList(MainMenuController.order.getOrderList());
@@ -34,6 +40,9 @@ public class ViewOrderController {
         updatePrices();
     }
 
+    /**
+     * This function generates the values for subtotal, tax, and total price in a properly formatted manner
+     */
     private void updatePrices() {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setMinimumFractionDigits(2);
@@ -51,6 +60,11 @@ public class ViewOrderController {
         totalTextField.setText("$" + formattedTotal);
     }
 
+    /**
+     * This function removes a selected order from the order list. The user is asked to confirm if they want to remove the selected item
+     * and given a message if there was a problem removing a selected item
+     * @param actionEvent remove selected item button is pressed
+     */
     public void removeSelectedItem(ActionEvent actionEvent) {
         if (this.ordersList.getSelectionModel().getSelectedItem() == null) {
             displayWarning("You did not select item to remove");
@@ -76,6 +90,10 @@ public class ViewOrderController {
         }
     }
 
+    /**
+     * This function displays and alert with a custom message if the user has done something invalid
+     * @param s message to be displayed to the user
+     */
     private void displayWarning(String s) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("WARNING");
@@ -84,6 +102,10 @@ public class ViewOrderController {
         alert.showAndWait();
     }
 
+    /**
+     * This function places the order by adding it to the list of store orders
+     * @param actionEvent place order button is pressed
+     */
     public void placeOrder(ActionEvent actionEvent) {
         if(MainMenuController.order.getOrderLength() == 0){
             displayWarning("You Cannot Place Order Since You Have No Orders!");
