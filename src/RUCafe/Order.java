@@ -33,11 +33,26 @@ public class Order implements Customizable{
 
     @Override
     public boolean remove(Object obj) {
-        return false;
+        if(obj instanceof  Donut){
+            Donut d = (Donut) obj;
+            this.order.remove(d);
+            return true;
+        }else if (obj instanceof Coffee){
+            Coffee c = (Coffee) obj;
+            this.order.remove(c);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public int getOrderLength(){
         return this.order.size();
+    }
+
+    public MenuItem getItem(int index){
+        return order.get(index);
     }
 
     public double getSubTotal() {
