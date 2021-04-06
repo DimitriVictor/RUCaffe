@@ -9,6 +9,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+/**
+ * This is the controller class for the Store Order menu. It allows users to delete orders and export orders into a text file
+ * @author Padmank Ambadipudi
+ * @author Dimitri Victor
+ */
 public class StoreOrderController {
 
     @FXML
@@ -26,6 +31,9 @@ public class StoreOrderController {
     @FXML
     private ComboBox chooseStoreOrderComboBox;
 
+    /**
+     * This function initializes the GUI elements in the store order menu
+     */
     @FXML
     public void initialize() {
         ObservableList<Integer> orders = FXCollections.observableArrayList(MainMenuController.storeOrder.getNumList());
@@ -34,6 +42,10 @@ public class StoreOrderController {
         listView.setItems(null);
     }
 
+    /**
+     * This function cancels a specified order and removes it from the list of store orders
+     * @param event cancel order button is selected
+     */
     @FXML
     public void cancelOrder(ActionEvent event){
         if(chooseStoreOrderComboBox.getSelectionModel().getSelectedItem() == null){
@@ -58,6 +70,10 @@ public class StoreOrderController {
         }
     }
 
+    /**
+     * This function displays corresponding orders based on the order number selected in the drop down menu
+     * @param event The user selects an order number from the drop down menu
+     */
     @FXML
     public void chooseStoreOrder(ActionEvent event){
         if(chooseStoreOrderComboBox.getValue() == null){
@@ -73,6 +89,10 @@ public class StoreOrderController {
         listView.setItems(orders);
     }
 
+    /**
+     * This function displays an alert to the user if they have done something invalid
+     * @param warningMessage message to be displayed to the user
+     */
     public void displayWarning(String warningMessage){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("WARNING");
@@ -81,9 +101,13 @@ public class StoreOrderController {
         alert.showAndWait();
     }
 
+    /**
+     * This function exports the store order information to a text file
+     * @param event the user clicks the export file button
+     */
     @FXML
-    public void clickedExportFile(){
-        if(MainMenuController.storeOrder.getNumOrders() == Constants.NO_ORDERS){
+    public void clickedExportFile(ActionEvent event){
+        if(MainMenuController.storeOrder.getNumOrders() == 0){
             displayWarning("There Are No Orders To Export");
             return;
         }
