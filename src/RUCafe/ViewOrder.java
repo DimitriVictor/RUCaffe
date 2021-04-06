@@ -85,6 +85,24 @@ public class ViewOrder {
     }
 
     public void placeOrder(ActionEvent actionEvent) {
+        if(MainMenuController.order.getOrderLength() == 0){
+            displayWarning("You Cannot Place Order Since You Have No Orders!");
+            return;
+        }
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure You Want To Place This Order?", ButtonType.YES, ButtonType.CANCEL);
+        alert.showAndWait();
+
+        if(alert.getResult() == ButtonType.YES){
+            boolean addedSuccessfully = MainMenuController.storeOrder.add(MainMenuController.order);
+            if (!addedSuccessfully) {
+                displayWarning("Issue with adding to order, please try again");
+                return;
+            }
+        }
+        else{
+            alert.close();
+            return;
+        }
     }
 }
