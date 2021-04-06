@@ -13,6 +13,8 @@ public class Constants {
     public static final int MAIN_WINDOW_WIDTH = 600;
     public static final int DONUT_WINDOW_HEIGHT = 450;
     public static final int DONUT_WINDOW_WIDTH = 500;
+    public static final int COFFEE_WINDOW_HEIGHT = 450;
+    public static final int COFFEE_WINDOW_WIDTH = 350;
 
     //CONSTANTS FOR PRICING
     public static final double SALES_TAX = .06625;
@@ -50,5 +52,8 @@ public class Constants {
     public static final int THREE = 3;
 
     public static final int NO_ORDERS = 0;
+
+    //CONSTANTS FOR STORE ORDER
+    public static final String zeroDollars = "$0.00";
 
 }

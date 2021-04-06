@@ -63,8 +63,8 @@ public class MainMenuController {
         stage.setTitle("Order Coffee");
         stage.setScene(new Scene(root1));
 
-        stage.setX(350);
-        stage.setY(450);
+        stage.setX(Constants.COFFEE_WINDOW_WIDTH);
+        stage.setY(Constants.COFFEE_WINDOW_HEIGHT);
 
         //After the window is open, make main menu disabled
         stage.initModality(Modality.APPLICATION_MODAL);
