@@ -32,12 +32,14 @@ public class Constants {
     public static final double ADDIN_PRICE = .20;
 
     //CONSTANTS FOR COFFEE SIZES
-    public static final String SMALL = "Small";
-    public static final double SMALL_PRICE = 1.99;
-    public static final String MEDIUM = "Medium";
-    public static final double MEDIUM_PRICE = 2.49;
-    public static final String LARGE = "Large";
-    public static final double LARGE_PRICE = 2.99;
+    public static final String SHORT = "Short";
+    public static final double SHORT_PRICE = 1.99;
+    public static final String TALL = "Tall";
+    public static final double TALL_PRICE = 2.49;
+    public static final String GRANDE = "Grande";
+    public static final double GRANDE_PRICE = 2.99;
+    public static final String VENTE = "Venti";
+    public static final double VENTE_PRICE = 3.49;
 
 
     //CONSTANTS FOR # OF COFFES
