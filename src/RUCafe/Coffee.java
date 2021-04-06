@@ -104,7 +104,7 @@ public class Coffee extends MenuItem implements Customizable {
             hasToppings = true;
         }
         if(hasToppings == true){
-            order.substring(0,order.length()-2);
+           order = order.substring(0,order.length()-2);
         }
 
         order += "]";
