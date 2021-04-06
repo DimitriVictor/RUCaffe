@@ -78,7 +78,7 @@ public class Coffee extends MenuItem implements Customizable {
 
         String order = "Coffee";
 
-        order += "(" + Double.toString(count) + ") ";
+        order += "(" + Integer.toString((int)count) + ") ";
 
         order += size +"[";
 
