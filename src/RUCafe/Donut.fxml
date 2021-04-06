@@ -47,7 +47,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="quantityTextField" alignment="CENTER" layoutX="219.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" text="1" />
+      <TextField fx:id="quantityTextField" alignment="CENTER" editable="false" layoutX="219.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" text="1" />
       <Button layoutX="250.0" layoutY="245.0" mnemonicParsing="false" onAction="#increment" prefHeight="19.0" prefWidth="28.0" text="+">
          <font>
             <Font size="14.0" />
