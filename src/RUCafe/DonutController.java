@@ -16,7 +16,7 @@ import java.util.Observable;
  * This class is the controller for the Donut.fxml view, and it controlls the Order Donut Menu GUI. The user can select types and flavors of donuts, add & remove from cart
  * and add them to the order
  * @author Padmank Ambadipudi
- * @Dimitri Victor
+ * @author Dimitri Victor
  */
 public class DonutController {
 

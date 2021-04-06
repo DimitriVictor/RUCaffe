@@ -3,7 +3,7 @@ package RUCafe;
 /**
  * This class is the class that represents the Coffee. It contains different fields such as Addins,Size, and Count
  * @author Padmank Ambadipudi
- * @Dimitri Victor
+ * @author Dimitri Victor
  */
 public class Coffee extends MenuItem implements Customizable {
 

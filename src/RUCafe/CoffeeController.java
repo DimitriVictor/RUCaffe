@@ -6,7 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-
+/**
+ * This class is the controller for the Coffee.fxml view, and it controls the Order Coffee Menu GUI. The user can select the size of the coffee and Addins.
+ * Also get the total price of the coffee. It can also add the coffee to the order.
+ * @author Padmank Ambadipudi
+ * @author Dimitri Victor
+ */
 public class CoffeeController {
 
     Coffee coffee = new Coffee();
@@ -42,6 +47,9 @@ public class CoffeeController {
     @FXML
     private Button addOrderButton;
 
+    /**
+     * Initializes the Coffee Menu
+     */
     @FXML
     public void initialize() {
         ObservableList<String> sizes = FXCollections.observableArrayList(Constants.SHORT,Constants.TALL, Constants.GRANDE, Constants.VENTE);
@@ -52,6 +60,10 @@ public class CoffeeController {
 
     }
 
+    /**
+     * This function displays whether the cream addin was selected or deselected.
+     * @param event selected cream checkbox was selected or deselected
+     */
     @FXML
     void selectCream(ActionEvent event) {
         String type = Constants.CREAM;
@@ -66,6 +78,10 @@ public class CoffeeController {
         totalTextArea.setText("$" + String.format("%.2f",totalPrice));
     }
 
+    /**
+     * This function displays whether the milk addin was selected or deselected.
+     * @param event selected milk checkbox was selected or deselected
+     */
     @FXML
     void selectMilk(ActionEvent event) {
         String type = Constants.MILK;
@@ -82,6 +98,10 @@ public class CoffeeController {
         totalTextArea.setText("$" + String.format("%.2f",totalPrice));
     }
 
+    /**
+     * This function displays whether the syrup addin was selected or deselected.
+     * @param event selected syrup checkbox was selected or deselected
+     * */
     @FXML
     void selectSyrup(ActionEvent event) {
         String type = Constants.SYRUP;
@@ -96,6 +116,10 @@ public class CoffeeController {
         totalTextArea.setText("$" + String.format("%.2f",totalPrice));
     }
 
+    /**
+     * This function displays whether the whippedcream addin was selected or deselected.
+     * @param event selected whippedcream checkbox was selected or deselected
+     * */
     @FXML
     void selectWhippedCream(ActionEvent event) {
         String type = Constants.WHIPPEDCREAM;
@@ -110,6 +134,10 @@ public class CoffeeController {
         totalTextArea.setText("$" + String.format("%.2f",totalPrice));
     }
 
+    /**
+     * This function displays whether the caramel addin was selected or deselected.
+     * @param event selected caramel checkbox was selected or deselected
+     * */
     @FXML
     void selectCaramel(ActionEvent event) {
         String type = Constants.CARAMEL;
@@ -124,6 +152,10 @@ public class CoffeeController {
         totalTextArea.setText("$" + String.format("%.2f",totalPrice));
     }
 
+    /**
+     * This function is called when the size is chosen and sets the combo box to that value
+     * @param event selected a size from the count combo box
+     * */
     @FXML
     void sizeSelected(ActionEvent event) {
 
@@ -146,6 +178,10 @@ public class CoffeeController {
         totalTextArea.setText("$" + String.format("%.2f", totalPrice));
     }
 
+    /**
+     * This function is called when the count is chosen and sets the combo box to that number
+     * @param event selected a size from the  count combo box
+     * */
     @FXML
     void countSelected(ActionEvent event) {
     //this is alittle ugly*******
@@ -154,7 +190,10 @@ public class CoffeeController {
         double totalPrice = (sizePrice + addInsPrice)*count;
         totalTextArea.setText("$" + String.format("%.2f", totalPrice));
     }
-
+    /**
+     * This function is called when the user clicks the add order button and it adds the item to the shopping list
+     * @param event pressed the add order button
+     * */
     @FXML
     void addOrderSelected(ActionEvent event){
         if(sizeComboBox.getSelectionModel().getSelectedItem() == null ||
@@ -183,6 +222,10 @@ public class CoffeeController {
 
     }
 
+    /**
+     * This function is called and shows the user a warning message
+     * @param warningMessage is the message displayed on the warning
+     * */
     public void displayWarning(String warningMessage){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("WARNING");
@@ -191,6 +234,10 @@ public class CoffeeController {
         alert.showAndWait();
     }
 
+    /**
+     * This function displays a confirmation message
+     * @param confirmMessage is the message to confirm
+     */
     public void displayConfirmation(String confirmMessage){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("CONFIRMATION");
