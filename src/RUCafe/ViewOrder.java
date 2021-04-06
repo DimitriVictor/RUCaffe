@@ -56,7 +56,7 @@ public class ViewOrder {
             displayWarning("You did not select item to remove");
             return;
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,  "Do You Want To Add This To Your Order?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,  "Are You Sure You Want To Remove Order?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
 
         if(alert.getResult() == ButtonType.YES){
@@ -99,6 +99,8 @@ public class ViewOrder {
                 displayWarning("Issue with adding to order, please try again");
                 return;
             }
+            Stage stage = (Stage) removeBtn.getScene().getWindow();
+            stage.close();
         }
         else{
             alert.close();

@@ -16,7 +16,10 @@ import java.io.IOException;
  */
 public class MainMenuController {
     public static Order order; //May need to be static
-    public static StoreOrder storeOrder;
+
+    public static StoreOrder storeOrder = new StoreOrder();
+    private boolean storeOrderExist;
+
     private int orderNum = 0;
     private boolean orderExist = false;
     private Object Constants;
@@ -106,6 +109,7 @@ public class MainMenuController {
      * @param actionEvent the button is pressed
      */
     public void openViewStoreOrder(ActionEvent actionEvent) {
+
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StoreOrder.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -135,4 +139,5 @@ public class MainMenuController {
             this.orderExist = true;
         }
     }
+
 }

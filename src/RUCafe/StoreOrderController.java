@@ -2,14 +2,13 @@ package RUCafe;
 
 import java.util.ArrayList;
 import java.util.Observable;
-
+import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class StoreOrderController implements Customizable{
-    public static ArrayList<Order> storeOrders = new ArrayList<>();
+public class StoreOrderController {
 
     @FXML
     private ListView listView;
@@ -28,28 +27,20 @@ public class StoreOrderController implements Customizable{
 
     @FXML
     public void initialize() {
-        ObservableList<Integer> orders = FXCollections.observableArrayList();
-        for(int i = 0; i < storeOrders.size(); i++){
-            orders.add(i);
+        if(MainMenuController.storeOrder.getNumOrders() != 0){
+            ObservableList<Integer> orders = FXCollections.observableArrayList(MainMenuController.storeOrder.getNumList());
+            chooseStoreOrderComboBox.setItems(orders);
         }
-
-        ObservableList<String> sizes = FXCollections.observableArrayList(Constants.SMALL,Constants.MEDIUM, Constants.LARGE);
-
-        chooseStoreOrderComboBox.setItems(sizes);
-
-        ObservableList<Integer> numbers = FXCollections.observableArrayList(Constants.ONE,Constants.TWO,Constants.THREE);
-        chooseStoreOrderComboBox.setItems(numbers);
-
     }
 
-    @Override
-    public boolean add(Object obj) {
-        return false;
-    }
+    @FXML
+    public void chooseStoreOrder(ActionEvent event){
+        int index = chooseStoreOrderComboBox.getSelectionModel().getSelectedIndex();
+        Order order = MainMenuController.storeOrder.getOrder(index);
 
-    @Override
-    public boolean remove(Object obj) {
-        return false;
+        totalTextField.setText("$" + String.format("%.2f", order.getSubTotal()));
+        ObservableList<String> orders = FXCollections.observableArrayList(order.getOrderList());
+        listView.setItems(orders);
     }
 
     public void displayWarning(String warningMessage){
@@ -59,7 +50,5 @@ public class StoreOrderController implements Customizable{
         alert.setContentText(warningMessage);
         alert.showAndWait();
     }
-
-
 
 }
