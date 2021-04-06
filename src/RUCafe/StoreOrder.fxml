@@ -16,7 +16,7 @@
          </font>
       </Label>
       <ListView fx:id="listView" layoutX="57.0" layoutY="127.0" prefHeight="243.0" prefWidth="388.0" />
-      <Button fx:id="exportOrderButton" layoutX="354.0" layoutY="394.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="91.0" text="Export" />
+      <Button fx:id="exportOrderButton" layoutX="354.0" layoutY="394.0" mnemonicParsing="false" onAction="#clickedExportFile" prefHeight="35.0" prefWidth="91.0" text="Export" />
       <Button fx:id="cancelOrderButton" layoutX="246.0" layoutY="394.0" mnemonicParsing="false" onAction="#cancelOrder" prefHeight="35.0" prefWidth="91.0" text="Cancel Order" />
       <TextField fx:id="totalTextField" layoutX="319.0" layoutY="80.0" prefHeight="23.0" prefWidth="126.0" text="\$0.00" />
       <ComboBox fx:id="chooseStoreOrderComboBox" layoutX="57.0" layoutY="80.0" onAction="#chooseStoreOrder" prefHeight="27.0" prefWidth="161.0" promptText="Choose Store Order" />

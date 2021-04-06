@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class StoreOrderController {
 
@@ -39,10 +40,22 @@ public class StoreOrderController {
             displayWarning("You Must Select An Order To Cancel An Order!");
             return;
         }
-        int index = chooseStoreOrderComboBox.getSelectionModel().getSelectedIndex();
-        MainMenuController.storeOrder.remove(MainMenuController.storeOrder.getOrder(index));
-        initialize();
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,  "Are You Sure You Want To Cancel Order?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+
+        if(alert.getResult() == ButtonType.YES) {
+            int index = chooseStoreOrderComboBox.getSelectionModel().getSelectedIndex();
+            boolean canceledSuccessfully = MainMenuController.storeOrder.remove(MainMenuController.storeOrder.getOrder(index));
+            if (!canceledSuccessfully) {
+                displayWarning("Issue with canceling order, please try again");
+                return;
+            }
+            initialize();
+        }else {
+            alert.close();
+            return;
+        }
     }
 
     @FXML
@@ -68,4 +81,27 @@ public class StoreOrderController {
         alert.showAndWait();
     }
 
+    @FXML
+    public void clickedExportFile(){
+        if(MainMenuController.storeOrder.getNumOrders() == 0){
+            displayWarning("There Are No Orders To Export");
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,  "Are You Sure You Want To Export?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+
+        if(alert.getResult() == ButtonType.YES) {
+            Stage stage = new Stage();
+            boolean exportSuccessfully = MainMenuController.storeOrder.exportFile(stage);
+            if (!exportSuccessfully) {
+                displayWarning("Issue with exporting, please try again");
+                return;
+            }
+        }else {
+            alert.close();
+            return;
+        }
+
+    }
 }
