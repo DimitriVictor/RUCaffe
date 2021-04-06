@@ -28,19 +28,24 @@ public class MainMenuController {
     public void openOrderDonuts(ActionEvent actionEvent) throws IOException {
         createNewOrder();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Donut.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Order Donuts");
-        stage.setResizable(false);
-        stage.setScene(new Scene(root1));
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Donut.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Order Donuts");
+            stage.setResizable(false);
+            stage.setScene(new Scene(root1));
 
-        stage.setX(RUCafe.Constants.DONUT_WINDOW_WIDTH);
-        stage.setY(RUCafe.Constants.DONUT_WINDOW_HEIGHT);
+            stage.setX(RUCafe.Constants.DONUT_WINDOW_WIDTH);
+            stage.setY(RUCafe.Constants.DONUT_WINDOW_HEIGHT);
 
-        //After the window is open, make main menu disabled
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
+            //After the window is open, make main menu disabled
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -50,6 +55,7 @@ public class MainMenuController {
     public void openOrderCoffee(ActionEvent actionEvent) throws IOException {
         createNewOrder();
 
+    try{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Coffee.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -62,28 +68,37 @@ public class MainMenuController {
         //After the window is open, make main menu disabled
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
+    }catch (IOException e){
+        e.printStackTrace();
+    }
+
     }
 
     /**
      * This function opens the window that is dedicated to viewing the current order
      * @param actionEvent the button is pressed
      */
-    public void openViewOrder(ActionEvent actionEvent) throws IOException {
+    public void openViewOrder(ActionEvent actionEvent) {
         createNewOrder();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewOrder.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("View Your Order");
-        stage.setResizable(false);
-        stage.setScene(new Scene(root1));
+      try {
+          FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewOrder.fxml"));
+          Parent root1 = (Parent) fxmlLoader.load();
+          Stage stage = new Stage();
+          stage.setTitle("View Your Order");
+          stage.setResizable(false);
+          stage.setScene(new Scene(root1));
 
-        stage.setX(RUCafe.Constants.DONUT_WINDOW_WIDTH);
-        stage.setY(RUCafe.Constants.DONUT_WINDOW_HEIGHT);
+          stage.setX(RUCafe.Constants.DONUT_WINDOW_WIDTH);
+          stage.setY(RUCafe.Constants.DONUT_WINDOW_HEIGHT);
 
-        //After the window is open, make main menu disabled
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
+          //After the window is open, make main menu disabled
+          stage.initModality(Modality.APPLICATION_MODAL);
+          stage.showAndWait();
+      }catch (IOException e){
+          e.printStackTrace();
+      }
+
     }
 
     /**
@@ -91,6 +106,22 @@ public class MainMenuController {
      * @param actionEvent the button is pressed
      */
     public void openViewStoreOrder(ActionEvent actionEvent) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StoreOrder.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Store Orders");
+            stage.setScene(new Scene(root1));
+
+            stage.setX(350);
+            stage.setY(450);
+
+            //After the window is open, make main menu disabled
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
