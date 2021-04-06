@@ -19,7 +19,7 @@ public class MainMenuController {
 
     public static StoreOrder storeOrder = new StoreOrder();
 
-    private int orderNum = 0;
+    private int orderNum = 1;
     public static boolean orderExist = false;
 
     /**

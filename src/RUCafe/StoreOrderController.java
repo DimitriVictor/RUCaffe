@@ -27,14 +27,31 @@ public class StoreOrderController {
 
     @FXML
     public void initialize() {
-        if(MainMenuController.storeOrder.getNumOrders() != 0){
-            ObservableList<Integer> orders = FXCollections.observableArrayList(MainMenuController.storeOrder.getNumList());
-            chooseStoreOrderComboBox.setItems(orders);
+        ObservableList<Integer> orders = FXCollections.observableArrayList(MainMenuController.storeOrder.getNumList());
+        chooseStoreOrderComboBox.setItems(orders);
+        totalTextField.setText("$0.00");
+        listView.setItems(null);
+    }
+
+    @FXML
+    public void cancelOrder(ActionEvent event){
+        if(chooseStoreOrderComboBox.getSelectionModel().getSelectedItem() == null){
+            displayWarning("You Must Select An Order To Cancel An Order!");
+            return;
         }
+        int index = chooseStoreOrderComboBox.getSelectionModel().getSelectedIndex();
+        MainMenuController.storeOrder.remove(MainMenuController.storeOrder.getOrder(index));
+        initialize();
+
     }
 
     @FXML
     public void chooseStoreOrder(ActionEvent event){
+        if(chooseStoreOrderComboBox.getValue() == null){
+            totalTextField.setText("$0.00");
+            listView.setItems(null);
+            return;
+        }
         int index = chooseStoreOrderComboBox.getSelectionModel().getSelectedIndex();
         Order order = MainMenuController.storeOrder.getOrder(index);
 
