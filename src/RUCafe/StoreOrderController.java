@@ -77,7 +77,7 @@ public class StoreOrderController {
     @FXML
     public void chooseStoreOrder(ActionEvent event){
         if(chooseStoreOrderComboBox.getValue() == null){
-            totalTextField.setText("$0.00");
+            totalTextField.setText(Constants.zeroDollars);
             listView.setItems(null);
             return;
         }

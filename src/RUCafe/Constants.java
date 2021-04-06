@@ -53,4 +53,7 @@ public class Constants {
 
     public static final int NO_ORDERS = 0;
 
+    //CONSTANTS FOR STORE ORDER
+    public static final String zeroDollars = "$0.00";
+
 }
