@@ -28,7 +28,7 @@
       <CheckBox fx:id="caramelCheckbox" layoutX="35.0" layoutY="365.0" mnemonicParsing="false" onAction="#selectCaramel" text="Caramel" />
       <ComboBox fx:id="sizeComboBox" layoutX="175.0" layoutY="212.0" onAction="#sizeSelected" prefWidth="150.0" promptText="Size" />
       <ComboBox fx:id="countComboBox" layoutX="175.0" layoutY="258.0" onAction="#countSelected" prefWidth="150.0" promptText="How Many?" />
-      <Button fx:id="addOrderButton" layoutX="175.0" layoutY="394.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" text="Add Order" />
+      <Button fx:id="addOrderButton" layoutX="175.0" layoutY="394.0" mnemonicParsing="false" onAction="#addOrderSelected" prefHeight="27.0" prefWidth="150.0" text="Add Order" />
       <TextArea fx:id="totalTextArea" editable="false" layoutX="175.0" layoutY="332.0" prefHeight="27.0" prefWidth="150.0" text="\$0.00" />
    </children>
 </AnchorPane>

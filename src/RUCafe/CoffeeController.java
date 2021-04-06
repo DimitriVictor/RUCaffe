@@ -3,10 +3,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 
 
 import java.util.Observable;
@@ -48,22 +45,22 @@ public class CoffeeController {
 
     @FXML
     public void initialize() {
-        ObservableList<String> sizes = FXCollections.observableArrayList("Small","Medium", "Large");
+        ObservableList<String> sizes = FXCollections.observableArrayList(Constants.SMALL,Constants.MEDIUM, Constants.LARGE);
         sizeComboBox.setItems(sizes);
 
-        ObservableList<Integer> numbers = FXCollections.observableArrayList(1,2,3);
+        ObservableList<Integer> numbers = FXCollections.observableArrayList(Constants.ONE,Constants.TWO,Constants.THREE);
         countComboBox.setItems(numbers);
 
     }
 
     @FXML
     void selectCream(ActionEvent event) {
-        String type = "cream";
+        String type = Constants.CREAM;
         if(creamCheckbox.isSelected()){
-            addInsPrice += .20;
+            addInsPrice += Constants.ADDIN_PRICE;
             coffee.add(type);
         }else{
-            addInsPrice -= .20;
+            addInsPrice -= Constants.ADDIN_PRICE;
             coffee.remove(type);
         }
         double totalPrice = (sizePrice + addInsPrice)*count;
@@ -72,13 +69,13 @@ public class CoffeeController {
 
     @FXML
     void selectMilk(ActionEvent event) {
-        String type = "milk";
+        String type = Constants.MILK;
 
         if(milkCheckbox.isSelected()){
-            addInsPrice += .20;
+            addInsPrice += Constants.ADDIN_PRICE;
             coffee.add(type);
         }else{
-            addInsPrice -= .20;
+            addInsPrice -= Constants.ADDIN_PRICE;
             coffee.remove(type);
 
         }
@@ -88,12 +85,12 @@ public class CoffeeController {
 
     @FXML
     void selectSyrup(ActionEvent event) {
-        String type = "syrup";
+        String type = Constants.SYRUP;
         if(syrupCheckbox.isSelected()){
-            addInsPrice += .20;
+            addInsPrice += Constants.ADDIN_PRICE;
             coffee.add(type);
         }else{
-            addInsPrice -= .20;
+            addInsPrice -= Constants.ADDIN_PRICE;
             coffee.remove(type);
         }
         double totalPrice = (sizePrice + addInsPrice)*count;
@@ -102,12 +99,12 @@ public class CoffeeController {
 
     @FXML
     void selectWhippedCream(ActionEvent event) {
-        String type = "whippedCream";
+        String type = Constants.WHIPPEDCREAM;
         if(whippedCreamCheckBox.isSelected()){
-            addInsPrice += .20;
+            addInsPrice += Constants.ADDIN_PRICE;
             coffee.add(type);
         }else{
-            addInsPrice -= .20;
+            addInsPrice -= Constants.ADDIN_PRICE;
             coffee.remove(type);
         }
         double totalPrice = (sizePrice + addInsPrice)*count;
@@ -116,12 +113,12 @@ public class CoffeeController {
 
     @FXML
     void selectCaramel(ActionEvent event) {
-        String type = "caramel";
+        String type = Constants.CARAMEL;
         if(caramelCheckbox.isSelected()){
-            addInsPrice += .20;
+            addInsPrice += Constants.ADDIN_PRICE;
             coffee.add(type);
         }else{
-            addInsPrice -= .20;
+            addInsPrice -= Constants.ADDIN_PRICE;
             coffee.remove(type);
         }
         double totalPrice = (sizePrice + addInsPrice)*count;
@@ -132,16 +129,13 @@ public class CoffeeController {
     void sizeSelected(ActionEvent event) {
 
         String selected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
-
-            if(selected.equals("Small")){
-                sizePrice = 1.99;
-            }else if(selected.equals("Medium")){
-                sizePrice = 2.49;
-
+            if(selected.equals(Constants.SMALL)){
+                sizePrice = Constants.SMALL_PRICE;
+            }else if(selected.equals(Constants.MEDIUM)){
+                sizePrice = Constants.MEDIUM_PRICE;
             }else{
-                sizePrice = 2.99;
+                sizePrice = Constants.LARGE_PRICE;
             }
-
 
         double totalPrice = (sizePrice + addInsPrice)*count;
         totalTextArea.setText("$" + String.format("%.2f", totalPrice));
@@ -159,8 +153,20 @@ public class CoffeeController {
     @FXML
     void addOrderSelected(ActionEvent event){
 
+        if(sizeComboBox.getSelectionModel().getSelectedItem() == null ||
+                countComboBox.getSelectionModel().getSelectedItem() == null){
+            displayWarning("Oops! You Forgot To Choose A Size Or Amount.");
+        }
+
 
     }
 
+    public void displayWarning(String warningMessage){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("WARNING");
+        alert.setHeaderText("Invalid!");
+        alert.setContentText(warningMessage);
+        alert.showAndWait();
+    }
 
 }

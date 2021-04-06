@@ -1,5 +1,7 @@
 package RUCafe;
 
+import com.sun.tools.internal.jxc.ap.Const;
+
 import java.util.ArrayList;
 
 public class Coffee extends MenuItem implements Customizable {
@@ -28,19 +30,19 @@ public class Coffee extends MenuItem implements Customizable {
     public boolean add(Object obj) {
         if(obj instanceof String){
             String additionType = (String)obj;
-            if(additionType.equals("cream")){
+            if(additionType.equals(Constants.CREAM)){
                 hasCream = true;
                 return true;
-            }else if(additionType.equals("whippedCream")){
+            }else if(additionType.equals(Constants.WHIPPEDCREAM)){
                 hasWhippedCream = true;
                 return true;
-            }else if(additionType.equals("milk")){
+            }else if(additionType.equals(Constants.MILK)){
                 hasMilk = true;
                 return true;
-            }else if(additionType.equals("syrup")){
+            }else if(additionType.equals(Constants.SYRUP)){
                 hasSyrup = true;
                 return true;
-            }else if(additionType.equals("caramel")) {
+            }else if(additionType.equals(Constants.CARAMEL)) {
                 hasCaramel = true;
                 return true;
             }
@@ -52,19 +54,19 @@ public class Coffee extends MenuItem implements Customizable {
     public boolean remove(Object obj) {
         if(obj instanceof String){
             String additionType = (String)obj;
-            if(additionType.equals("cream")){
+            if(additionType.equals(Constants.CREAM)){
                 hasCream = false;
                 return true;
-            }else if(additionType.equals("whippedCream")){
+            }else if(additionType.equals(Constants.WHIPPEDCREAM)){
                 hasWhippedCream = false;
                 return true;
-            }else if(additionType.equals("milk")){
+            }else if(additionType.equals(Constants.MILK)){
                 hasMilk = false;
                 return true;
-            }else if(additionType.equals("syrup")){
+            }else if(additionType.equals(Constants.SYRUP)){
                 hasSyrup = false;
                 return true;
-            }else if(additionType.equals("caramel")) {
+            }else if(additionType.equals(Constants.CARAMEL)) {
                 hasCaramel = false;
                 return true;
             }
@@ -82,24 +84,24 @@ public class Coffee extends MenuItem implements Customizable {
         order += size +"[";
 
         if(hasCream == true){
-            order += "cream, ";
+            order += Constants.CREAM + ", ";
             hasToppings = true;
         }
         if(hasSyrup == true){
-            order += "syrup, ";
+            order += Constants.SYRUP + ", ";
             hasToppings = true;
         }
         if(hasWhippedCream == true){
-            order += "whippedCream, ";
+            order += Constants.WHIPPEDCREAM + ", ";
             hasToppings = true;
 
         }
         if(hasMilk == true){
-            order += "milk, ";
+            order += Constants.MILK + ", ";
             hasToppings = true;
         }
         if(hasCaramel == true){
-            order += "caramel, ";
+            order += Constants.CARAMEL + ", ";
             hasToppings = true;
         }
         if(hasToppings == true){
