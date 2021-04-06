@@ -107,7 +107,7 @@ public class ViewOrderController {
      * @param actionEvent place order button is pressed
      */
     public void placeOrder(ActionEvent actionEvent) {
-        if(MainMenuController.order.getOrderLength() == 0){
+        if(MainMenuController.order.getOrderLength() == Constants.NO_ORDERS){
             displayWarning("You Cannot Place Order Since You Have No Orders!");
             return;
         }

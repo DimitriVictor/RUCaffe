@@ -113,7 +113,7 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     public void setCount(int count){
-        this.count =  count;
+        this.count = count;
     }
 
     public void setSize(String size){

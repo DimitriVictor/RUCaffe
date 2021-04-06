@@ -6,6 +6,8 @@ package RUCafe;
  * @Dimitri Victor
  */
 public class Constants {
+
+
     //CONSTANTS INVOLVING WINDOW SIZES
     public static final int MAIN_WINDOW_HEIGHT = 500;
     public static final int MAIN_WINDOW_WIDTH = 600;
@@ -42,9 +44,11 @@ public class Constants {
     public static final double VENTE_PRICE = 3.49;
 
 
-    //CONSTANTS FOR # OF COFFES
+    //CONSTANTS FOR # OF COFFEES
     public static final int ONE = 1;
     public static final int TWO = 2;
     public static final int THREE = 3;
+
+    public static final int NO_ORDERS = 0;
 
 }
