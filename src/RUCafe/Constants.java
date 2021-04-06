@@ -15,6 +15,8 @@ public class Constants {
     public static final double SALES_TAX = .06625;
 
     //CONSTANTS FOR DONUT OBJECT
+    public static final String YEAST_DONUT = "Yeast Donut";
+    public static final String CAKE_DONUT = "Cake Donut";
     public static final double YEAST_DONUT_PRICE = 1.39;
     public static final double CAKE_DONUT_PRICE = 1.59;
     public static final double DONUT_HOLE_PRICE = 0.33;

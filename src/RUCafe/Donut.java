@@ -16,9 +16,9 @@ public class Donut extends MenuItem {
     @Override
     double itemPrice() {
         double price = 0.0;
-        if(this.getDonutType().equals("Yeast Donut")){
+        if(this.getDonutType().equals(Constants.YEAST_DONUT)){
             price = Constants.YEAST_DONUT_PRICE * this.getQuantity();
-        } else if(this.getDonutType().equals("Cake Donut")){
+        } else if(this.getDonutType().equals(Constants.CAKE_DONUT)){
             price = Constants.CAKE_DONUT_PRICE * this.getQuantity();
         } else {
             price = Constants.DONUT_HOLE_PRICE * this.getQuantity();
