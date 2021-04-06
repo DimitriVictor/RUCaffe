@@ -15,7 +15,7 @@ import java.io.IOException;
  * @author Dimitri Victor
  */
 public class MainMenuController {
-    private Order order; //May need to be static
+    public static Order order; //May need to be static
     //WILL EVENTUALLY NEED TO CREATED VARIABLE FOR STORE ORDER: NEED TO MAKE CLASS FOR STORE ORDER
     private int orderNum = 0;
     private boolean orderExist = false;

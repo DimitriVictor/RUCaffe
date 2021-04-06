@@ -76,6 +76,14 @@ public class DonutController {
         alert.showAndWait();
     }
 
+    public void displayConfirmation(String confirmMessage){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("CONFIRMATION");
+        alert.setHeaderText("Add To Order");
+        alert.setContentText(confirmMessage);
+        alert.showAndWait();
+    }
+
     /**
      * Resets all selections in the Donut Menu GUI
      */
@@ -148,7 +156,7 @@ public class DonutController {
 
         donutCart.remove(donutOrders.getSelectionModel().getSelectedIndex());
 
-        ObservableList<String> itemsInCart = FXCollections.observableArrayList(populateCart());;
+        ObservableList<String> itemsInCart = FXCollections.observableArrayList(populateCart());
         donutOrders.setItems(itemsInCart);
 
         subtotalTextField.setText(getSubtotal());
@@ -156,5 +164,19 @@ public class DonutController {
     }
 
     public void addOrder(ActionEvent actionEvent) {
+        if(donutCart.isEmpty()){
+            displayWarning("You Must Have Something In Your Cart Before Ordering!");
+            return;
+        }
+
+        displayConfirmation("Donuts Added to Order!");
+
+        for (Donut toAdd : donutCart) {
+            boolean addedSuccessfully = MainMenuController.order.add(toAdd);
+            if (!addedSuccessfully) {
+                displayWarning("Issue with adding to order, please try again");
+                return;
+            }
+        }
     }
 }
