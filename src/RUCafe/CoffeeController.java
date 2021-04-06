@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 
 import java.util.Observable;
@@ -162,11 +163,19 @@ public class CoffeeController {
             return;
         }
 
-        displayConfirmation(" Are You Sure You Want To Add The Coffee?");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,  "Do You Want To Add This To Your Order?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
 
-        boolean addedSuccessfully = MainMenuController.order.add(coffee);
-        if (!addedSuccessfully) {
-            displayWarning("Issue with adding to order, please try again");
+        if(alert.getResult() == ButtonType.YES){
+            boolean addedSuccessfully = MainMenuController.order.add(coffee);
+            if (!addedSuccessfully) {
+                displayWarning("Issue with adding to order, please try again");
+                return;
+            }
+            Stage stage = (Stage) sizeComboBox.getScene().getWindow();
+            stage.close();
+        }else{
+            alert.close();
             return;
         }
 

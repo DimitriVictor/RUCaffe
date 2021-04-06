@@ -48,6 +48,7 @@ public class MainMenuController {
      * @param actionEvent the button is pressed
      */
     public void openOrderCoffee(ActionEvent actionEvent) throws IOException {
+        createNewOrder();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Coffee.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -67,8 +68,22 @@ public class MainMenuController {
      * This function opens the window that is dedicated to viewing the current order
      * @param actionEvent the button is pressed
      */
-    public void openViewOrder(ActionEvent actionEvent) {
+    public void openViewOrder(ActionEvent actionEvent) throws IOException {
+        createNewOrder();
 
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewOrder.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("View Your Order");
+        stage.setResizable(false);
+        stage.setScene(new Scene(root1));
+
+        stage.setX(RUCafe.Constants.DONUT_WINDOW_WIDTH);
+        stage.setY(RUCafe.Constants.DONUT_WINDOW_HEIGHT);
+
+        //After the window is open, make main menu disabled
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     /**

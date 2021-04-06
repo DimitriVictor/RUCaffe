@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.lang.reflect.Array;
 import java.text.DecimalFormat;
@@ -73,14 +74,6 @@ public class DonutController {
         alert.setTitle("WARNING");
         alert.setHeaderText("Invalid Command Entered!");
         alert.setContentText(warningMessage);
-        alert.showAndWait();
-    }
-
-    public void displayConfirmation(String confirmMessage){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("CONFIRMATION");
-        alert.setHeaderText("Add To Order");
-        alert.setContentText(confirmMessage);
         alert.showAndWait();
     }
 
@@ -169,14 +162,24 @@ public class DonutController {
             return;
         }
 
-        displayConfirmation("Donuts Added to Order!");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,  "Do You Want To Add This To Your Order?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
 
-        for (Donut toAdd : donutCart) {
-            boolean addedSuccessfully = MainMenuController.order.add(toAdd);
-            if (!addedSuccessfully) {
-                displayWarning("Issue with adding to order, please try again");
-                return;
+        if(alert.getResult() == ButtonType.YES){
+            for (Donut toAdd : donutCart) {
+                boolean addedSuccessfully = MainMenuController.order.add(toAdd);
+                if (!addedSuccessfully) {
+                    displayWarning("Issue with adding to order, please try again");
+                    return;
+                }
             }
+            Stage stage = (Stage) donutTypeSelect.getScene().getWindow();
+            stage.close();
         }
+        else {
+            alert.close();
+            return;
+        }
+
     }
 }
