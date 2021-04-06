@@ -107,7 +107,7 @@ public class StoreOrderController {
      */
     @FXML
     public void clickedExportFile(ActionEvent event){
-        if(MainMenuController.storeOrder.getNumOrders() == Constants.NO_ORDERS{
+        if(MainMenuController.storeOrder.getNumOrders() == Constants.NO_ORDERS){
             displayWarning("There Are No Orders To Export");
             return;
         }
