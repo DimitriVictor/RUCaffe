@@ -131,10 +131,13 @@ public class CoffeeController {
         String selected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
             if(selected.equals(Constants.SMALL)){
                 sizePrice = Constants.SMALL_PRICE;
+                coffee.setSize(Constants.SMALL);
             }else if(selected.equals(Constants.MEDIUM)){
                 sizePrice = Constants.MEDIUM_PRICE;
+                coffee.setSize(Constants.MEDIUM);
             }else{
                 sizePrice = Constants.LARGE_PRICE;
+                coffee.setSize(Constants.LARGE);
             }
 
         double totalPrice = (sizePrice + addInsPrice)*count;
@@ -156,8 +159,16 @@ public class CoffeeController {
         if(sizeComboBox.getSelectionModel().getSelectedItem() == null ||
                 countComboBox.getSelectionModel().getSelectedItem() == null){
             displayWarning("Oops! You Forgot To Choose A Size Or Amount.");
+            return;
         }
 
+        displayConfirmation(" Are You Sure You Want To Add The Coffee?");
+
+        boolean addedSuccessfully = MainMenuController.order.add(coffee);
+        if (!addedSuccessfully) {
+            displayWarning("Issue with adding to order, please try again");
+            return;
+        }
 
     }
 
@@ -166,6 +177,14 @@ public class CoffeeController {
         alert.setTitle("WARNING");
         alert.setHeaderText("Invalid!");
         alert.setContentText(warningMessage);
+        alert.showAndWait();
+    }
+
+    public void displayConfirmation(String confirmMessage){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("CONFIRMATION");
+        alert.setHeaderText("Add To Order");
+        alert.setContentText(confirmMessage);
         alert.showAndWait();
     }
 

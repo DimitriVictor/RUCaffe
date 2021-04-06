@@ -18,7 +18,7 @@ public class Coffee extends MenuItem implements Customizable {
 
     public Coffee(){
        size = "No Size";
-       count = 0;
+       count = 1;
     }
 
     @Override
@@ -120,4 +120,5 @@ public class Coffee extends MenuItem implements Customizable {
     public void setSize(String size){
         this.size = size;
     }
+
 }
