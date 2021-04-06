@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class ViewOrder {
+public class ViewOrderController {
 
     @FXML
     private ListView ordersList;
@@ -99,6 +99,7 @@ public class ViewOrder {
                 displayWarning("Issue with adding to order, please try again");
                 return;
             }
+            MainMenuController.orderExist = false;
             Stage stage = (Stage) removeBtn.getScene().getWindow();
             stage.close();
         }

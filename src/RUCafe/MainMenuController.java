@@ -18,11 +18,9 @@ public class MainMenuController {
     public static Order order; //May need to be static
 
     public static StoreOrder storeOrder = new StoreOrder();
-    private boolean storeOrderExist;
 
     private int orderNum = 0;
-    private boolean orderExist = false;
-    private Object Constants;
+    public static boolean orderExist = false;
 
     /**
      * This function opens the window that is dedicated to ordering donuts
