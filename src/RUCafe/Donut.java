@@ -1,7 +1,5 @@
 package RUCafe;
 
-import java.awt.*;
-
 public class Donut extends MenuItem {
     private String donutType;
     private String donutFlavor;
