@@ -4,9 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -53,7 +52,36 @@ public class ViewOrder {
     }
 
     public void removeSelectedItem(ActionEvent actionEvent) {
+        if (this.ordersList.getSelectionModel().getSelectedItem() == null) {
+            displayWarning("You did not select item to remove");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,  "Do You Want To Add This To Your Order?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
 
+        if(alert.getResult() == ButtonType.YES){
+            int index = ordersList.getSelectionModel().getSelectedIndex();
+            boolean isRemoved = MainMenuController.order.remove(MainMenuController.order.getItem(index));
+            if(!isRemoved){
+                displayWarning("Could Not Remove Selected Item!");
+                return;
+            }
+            ObservableList<String> orders = FXCollections.observableArrayList(MainMenuController.order.getOrderList());
+            this.ordersList.setItems(orders);
+            updatePrices();
+        }
+        else {
+            alert.close();
+            return;
+        }
+    }
+
+    private void displayWarning(String s) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("WARNING");
+        alert.setHeaderText("Invalid Command Entered!");
+        alert.setContentText(s);
+        alert.showAndWait();
     }
 
     public void placeOrder(ActionEvent actionEvent) {
