@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Padmank Ambadipudi
  * @author Dimitri Victor
  */
-public class StoreOrder implements  Customizable{
+public class StoreOrder implements Customizable{
      private ArrayList<Order> storeOrders;
 
     /**
