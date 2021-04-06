@@ -7,8 +7,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 
-import java.util.Observable;
-
 public class CoffeeController {
 
     Coffee coffee = new Coffee();
