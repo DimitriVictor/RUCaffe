@@ -70,4 +70,9 @@ public class Order implements Customizable{
         }
         return list;
     }
+
+    public int getOrderNumber(){
+        return orderNumber;
+    }
+
 }
