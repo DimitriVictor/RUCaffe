@@ -39,4 +39,12 @@ public class Order implements Customizable{
     public int getOrderLength(){
         return this.order.size();
     }
+
+    public ArrayList<String> getOrderList(){
+        ArrayList<String> list = new ArrayList<>();
+        for(MenuItem currOrder : this.order){
+            list.add(currOrder.toString());
+        }
+        return list;
+    }
 }
