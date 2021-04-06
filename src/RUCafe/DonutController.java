@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 /**
- * This class is the controller for the Donut.fxml view, and it controlls the Order Donut Menu GUI. The user can select types and flavors of donuts, add & remove from cart
+ * This class is the controller for the Donut.fxml view, and it controlls the Order Donut Menu GUI. The user can select types and flavors of donuts, add and remove from cart
  * and add them to the order
  * @author Padmank Ambadipudi
  * @author Dimitri Victor
@@ -100,7 +100,7 @@ public class DonutController {
 
     /**
      * This function adds the selected donut to the user's cart
-     * @param actionEvent the ">>"(add to cart) button is pressed
+     * @param actionEvent the (add to cart) button is pressed
      */
     public void addToCart(ActionEvent actionEvent) {
         if(donutTypeSelect.getSelectionModel().getSelectedItem() == null && donutFlavors.getSelectionModel().getSelectedItem() == null){
@@ -167,7 +167,7 @@ public class DonutController {
 
     /**
      * This function removes the selected donut to the user's cart
-     * @param actionEvent the "<<"(remove from cart) button is pressed
+     * @param actionEvent the (remove from cart) button is pressed
      */
     public void removeFromCart(ActionEvent actionEvent) {
         if(donutCart.isEmpty()){

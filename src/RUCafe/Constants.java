@@ -3,10 +3,9 @@ package RUCafe;
 /**
  * This class contains all the constants that are used in the project
  * @author Padmank Ambadipudi
- * @Dimitri Victor
+ * @author Dimitri Victor
  */
 public class Constants {
-
 
     //CONSTANTS INVOLVING WINDOW SIZES
     public static final int MAIN_WINDOW_HEIGHT = 500;

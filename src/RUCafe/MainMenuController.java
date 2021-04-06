@@ -26,7 +26,7 @@ public class MainMenuController {
      * This function opens the window that is dedicated to ordering donuts
      * @param actionEvent the button is pressed
      */
-    public void openOrderDonuts(ActionEvent actionEvent) throws IOException {
+    public void openOrderDonuts(ActionEvent actionEvent) {
         createNewOrder();
 
         try{
@@ -46,14 +46,13 @@ public class MainMenuController {
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 
     /**
      * This function opens the window that is dedicated to ordering coffee
      * @param actionEvent the button is pressed
      */
-    public void openOrderCoffee(ActionEvent actionEvent) throws IOException {
+    public void openOrderCoffee(ActionEvent actionEvent) {
         createNewOrder();
 
     try{
