@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
@@ -20,13 +21,14 @@
             <Image url="@imgs/orderCoffee.jpg" />
          </image>
       </ImageView>
-      <CheckBox layoutX="35.0" layoutY="216.0" mnemonicParsing="false" text="Cream" />
-      <CheckBox layoutX="35.0" layoutY="254.0" mnemonicParsing="false" text="Milk" />
-      <CheckBox layoutX="35.0" layoutY="290.0" mnemonicParsing="false" text="Syrup" />
-      <CheckBox layoutX="35.0" layoutY="328.0" mnemonicParsing="false" text="Whipped Cream" />
-      <CheckBox layoutX="35.0" layoutY="365.0" mnemonicParsing="false" text="Caramel" />
-      <ComboBox fx:id="sizeComboBox" layoutX="175.0" layoutY="212.0" prefWidth="150.0" promptText="Size" />
-      <ComboBox fx:id="countComboBox" layoutX="175.0" layoutY="258.0" prefWidth="150.0" promptText="How Many?" />
-      <TextArea fx:id="totalTextArea" layoutX="175.0" layoutY="337.0" prefHeight="0.0" prefWidth="150.0" promptText="\$0.00" />
+      <CheckBox fx:id="creamCheckbox" layoutX="35.0" layoutY="216.0" mnemonicParsing="false" onAction="#selectCream" text="Cream" />
+      <CheckBox fx:id="milkCheckbox" layoutX="35.0" layoutY="254.0" mnemonicParsing="false" onAction="#selectMilk" text="Milk" />
+      <CheckBox fx:id="syrupCheckbox" layoutX="35.0" layoutY="290.0" mnemonicParsing="false" onAction="#selectSyrup" text="Syrup" />
+      <CheckBox fx:id="whippedCreamCheckBox" layoutX="35.0" layoutY="328.0" mnemonicParsing="false" onAction="#selectWhippedCream" text="Whipped Cream" />
+      <CheckBox fx:id="caramelCheckbox" layoutX="35.0" layoutY="365.0" mnemonicParsing="false" onAction="#selectCaramel" text="Caramel" />
+      <ComboBox fx:id="sizeComboBox" layoutX="175.0" layoutY="212.0" onAction="#sizeSelected" prefWidth="150.0" promptText="Size" />
+      <ComboBox fx:id="countComboBox" layoutX="175.0" layoutY="258.0" onAction="#countSelected" prefWidth="150.0" promptText="How Many?" />
+      <Button fx:id="addOrderButton" layoutX="175.0" layoutY="394.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" text="Add Order" />
+      <TextArea fx:id="totalTextArea" editable="false" layoutX="175.0" layoutY="332.0" prefHeight="27.0" prefWidth="150.0" text="\$0.00" />
    </children>
 </AnchorPane>
