@@ -1,11 +1,8 @@
 package RUCafe;
 
-
-
 import java.util.ArrayList;
 
 public class Coffee extends MenuItem implements Customizable {
-    ArrayList<String> addInList = new ArrayList<>();
 
     private boolean hasCream = false;
     private boolean hasSyrup = false;
@@ -14,16 +11,18 @@ public class Coffee extends MenuItem implements Customizable {
     private boolean hasCaramel = false;
 
     private String size;
-    private double count;
+    private int count;
+    private double price;
 
     public Coffee(){
        size = "No Size";
        count = 1;
+       price = 0;
     }
 
     @Override
     double itemPrice() {
-        return 0;
+        return price;
     }
 
     @Override
@@ -114,11 +113,14 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     public void setCount(int count){
-        this.count =  (double)count;
+        this.count =  count;
     }
 
     public void setSize(String size){
         this.size = size;
     }
 
+    public void setPrice(double price){
+        this.price = price;
+    }
 }

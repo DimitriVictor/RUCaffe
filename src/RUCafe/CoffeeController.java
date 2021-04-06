@@ -156,7 +156,6 @@ public class CoffeeController {
 
     @FXML
     void addOrderSelected(ActionEvent event){
-
         if(sizeComboBox.getSelectionModel().getSelectedItem() == null ||
                 countComboBox.getSelectionModel().getSelectedItem() == null){
             displayWarning("Oops! You Forgot To Choose A Size Or Amount.");
@@ -167,6 +166,8 @@ public class CoffeeController {
         alert.showAndWait();
 
         if(alert.getResult() == ButtonType.YES){
+            double totalPrice = (sizePrice + addInsPrice)*count;
+            coffee.setPrice(totalPrice);
             boolean addedSuccessfully = MainMenuController.order.add(coffee);
             if (!addedSuccessfully) {
                 displayWarning("Issue with adding to order, please try again");
